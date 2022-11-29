@@ -1,0 +1,853 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/scripts/ItemList.gd" type="Script" id=1]
+[ext_resource path="res://Assets/scenes/Item.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/scripts/Edit.gd" type="Script" id=3]
+[ext_resource path="res://Assets/scripts/Create.gd" type="Script" id=4]
+[ext_resource path="res://Assets/scripts/SaveNewPopup.gd" type="Script" id=5]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ExtraTabBack" type="PanelContainer" parent="."]
+margin_left = 853.0
+margin_top = 1.0
+margin_right = 1023.0
+margin_bottom = 41.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExtraTabBack2" type="PanelContainer" parent="."]
+margin_left = 665.0
+margin_top = 1.0
+margin_right = 850.0
+margin_bottom = 41.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tabs" type="TabContainer" parent="."]
+margin_left = -4.0
+margin_top = 10.0
+margin_right = 1028.0
+margin_bottom = 604.0
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Read" type="ItemList" parent="Tabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="Panel" parent="Tabs/Read"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -519.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tabs/Read/Header"]
+margin_left = 14.0
+margin_top = 12.0
+margin_right = 569.0
+margin_bottom = 26.0
+text = "This is the header for this list"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Keywords" type="LineEdit" parent="Tabs/Read/Header"]
+margin_left = 848.003
+margin_top = 4.54668
+margin_right = 1014.0
+margin_bottom = 34.5467
+text = "Search Term"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sortDropdown" type="OptionButton" parent="Tabs/Read/Header"]
+margin_left = 742.0
+margin_top = 5.0
+margin_right = 845.0
+margin_bottom = 35.0
+text = "Title"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DescriptionBox" type="TextEdit" parent="Tabs/Read"]
+modulate = Color( 0.823529, 0.823529, 0.823529, 1 )
+margin_top = 492.0
+margin_right = 893.0
+margin_bottom = 558.0
+text = "Select a view button to see that medias description and a link"
+wrap_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="saveButton" type="Button" parent="Tabs/Read"]
+margin_left = 962.317
+margin_top = 535.375
+margin_right = 1021.31
+margin_bottom = 555.375
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="linkButton" type="Button" parent="Tabs/Read"]
+margin_left = 895.311
+margin_top = 494.351
+margin_right = 1021.31
+margin_bottom = 532.351
+text = "Link"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Tabs/Read"]
+margin_left = 10.0
+margin_top = 44.0
+margin_right = 1029.0
+margin_bottom = 492.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tabs/Read/ScrollContainer"]
+custom_constants/separation = 28
+script = ExtResource( 1 )
+media_dupe = ExtResource( 2 )
+
+[node name="SaveNewButton" type="Button" parent="Tabs/Read"]
+margin_left = 588.233
+margin_top = 5.4905
+margin_right = 690.233
+margin_bottom = 35.4906
+text = "Save As"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Remove" type="Button" parent="Tabs/Read"]
+margin_left = 894.894
+margin_top = 535.451
+margin_right = 958.894
+margin_bottom = 555.451
+text = "Remove"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RemoveConfirm" type="ConfirmationDialog" parent="Tabs/Read"]
+modulate = Color( 0.823529, 0.823529, 0.823529, 1 )
+margin_left = 413.0
+margin_top = 218.109
+margin_right = 613.0
+margin_bottom = 293.109
+popup_exclusive = true
+window_title = "Remove this Item?"
+dialog_text = "The selected Item will be removed from this list..."
+dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveNewConfirm" type="WindowDialog" parent="Tabs/Read"]
+margin_left = 386.0
+margin_top = 205.0
+margin_right = 635.0
+margin_bottom = 291.0
+window_title = "Save list as..."
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="Tabs/Read/SaveNewConfirm"]
+margin_left = 38.5519
+margin_top = 17.2252
+margin_right = 207.552
+margin_bottom = 41.2252
+max_length = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tres_extention" type="Label" parent="Tabs/Read/SaveNewConfirm"]
+modulate = Color( 0.34902, 0.34902, 0.34902, 1 )
+margin_left = 173.611
+margin_top = 22.4672
+margin_right = 213.611
+margin_bottom = 36.4672
+text = ".tres"
+
+[node name="create" type="Button" parent="Tabs/Read/SaveNewConfirm"]
+margin_left = 10.2947
+margin_top = 56.5603
+margin_right = 117.295
+margin_bottom = 76.5603
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cancel" type="Button" parent="Tabs/Read/SaveNewConfirm"]
+margin_left = 131.846
+margin_top = 56.3225
+margin_right = 238.846
+margin_bottom = 76.3225
+text = "Cancel"
+
+[node name="ShowListButton" type="Button" parent="Tabs/Read"]
+margin_left = 696.943
+margin_top = 5.0
+margin_right = 735.943
+margin_bottom = 35.0
+text = "List"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShowListPopup" type="WindowDialog" parent="Tabs/Read"]
+margin_left = 204.434
+margin_top = 106.068
+margin_right = 796.434
+margin_bottom = 430.068
+window_title = "A text list showing everything currently listed"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="Tabs/Read/ShowListPopup"]
+margin_left = 4.0
+margin_top = 5.0
+margin_right = 588.0
+margin_bottom = 320.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="imageback" type="Panel" parent="Tabs/Read"]
+modulate = Color( 0.662745, 0.662745, 0.662745, 1 )
+margin_left = 807.293
+margin_top = 44.3646
+margin_right = 1017.29
+margin_bottom = 334.365
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Image" type="TextureRect" parent="Tabs/Read"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 812.457
+margin_top = 48.8762
+margin_right = -11.5435
+margin_bottom = -229.124
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DateCreated" type="Label" parent="Tabs/Read"]
+modulate = Color( 0.407843, 0.407843, 0.407843, 1 )
+margin_left = 809.0
+margin_top = 473.0
+margin_right = 1011.0
+margin_bottom = 487.0
+text = "Created 10/16/20 2:20"
+align = 2
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Edit" type="ItemList" parent="Tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="Panel" parent="Tabs/Edit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -519.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tabs/Edit/Header"]
+margin_left = 13.9261
+margin_top = 11.6397
+margin_right = 200.926
+margin_bottom = 25.6397
+text = "Edit Media"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitlePanel" type="PanelContainer" parent="Tabs/Edit"]
+margin_left = 9.0
+margin_top = 50.0
+margin_right = 676.0
+margin_bottom = 84.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tabs/Edit/TitlePanel"]
+margin_left = 7.0
+margin_top = 10.0
+margin_right = 660.0
+margin_bottom = 24.0
+text = "Title:"
+
+[node name="TagsPanel" type="PanelContainer" parent="Tabs/Edit"]
+margin_left = 9.0
+margin_top = 89.0
+margin_right = 676.0
+margin_bottom = 123.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tabs/Edit/TagsPanel"]
+margin_left = 7.0
+margin_top = 10.0
+margin_right = 660.0
+margin_bottom = 24.0
+text = "Tags:"
+
+[node name="LinkPanel" type="PanelContainer" parent="Tabs/Edit"]
+margin_left = 9.41995
+margin_top = 390.564
+margin_right = 676.42
+margin_bottom = 424.564
+rect_pivot_offset = Vector2( 76.08, 61.436 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tabs/Edit/LinkPanel"]
+margin_left = 7.0
+margin_top = 10.0
+margin_right = 660.0
+margin_bottom = 24.0
+text = "Link:"
+
+[node name="RatingPanel" type="PanelContainer" parent="Tabs/Edit"]
+margin_left = 9.0
+margin_top = 328.0
+margin_right = 163.0
+margin_bottom = 362.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tabs/Edit/RatingPanel"]
+margin_left = 7.0
+margin_top = 10.0
+margin_right = 147.0
+margin_bottom = 24.0
+text = "Rating:                  /10"
+
+[node name="DescriptionPanel" type="PanelContainer" parent="Tabs/Edit"]
+margin_left = 9.0
+margin_top = 128.0
+margin_right = 676.0
+margin_bottom = 323.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tabs/Edit"]
+margin_left = 16.0
+margin_top = 135.0
+margin_right = 669.0
+margin_bottom = 232.0
+text = "Description:"
+
+[node name="TitleEdit" type="LineEdit" parent="Tabs/Edit"]
+margin_left = 60.0
+margin_top = 55.0
+margin_right = 671.0
+margin_bottom = 79.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TagsEdit" type="LineEdit" parent="Tabs/Edit"]
+margin_left = 60.0
+margin_top = 94.0
+margin_right = 671.0
+margin_bottom = 118.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LinkEdit" type="LineEdit" parent="Tabs/Edit"]
+margin_left = 56.0
+margin_top = 396.0
+margin_right = 671.0
+margin_bottom = 420.0
+rect_pivot_offset = Vector2( 29.08, 56.436 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ImagePanel" type="PanelContainer" parent="Tabs/Edit"]
+margin_left = 9.22242
+margin_top = 429.979
+margin_right = 676.222
+margin_bottom = 463.979
+rect_pivot_offset = Vector2( 76.08, 61.436 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tabs/Edit/ImagePanel"]
+margin_left = 7.0
+margin_top = 10.0
+margin_right = 660.0
+margin_bottom = 24.0
+text = "Image:"
+
+[node name="ImageEdit" type="LineEdit" parent="Tabs/Edit"]
+margin_left = 69.0
+margin_top = 435.0
+margin_right = 671.0
+margin_bottom = 459.0
+rect_pivot_offset = Vector2( 29.08, 56.436 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RatingEdit" type="LineEdit" parent="Tabs/Edit"]
+margin_left = 66.0
+margin_top = 333.0
+margin_right = 124.0
+margin_bottom = 357.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DescEdit" type="TextEdit" parent="Tabs/Edit"]
+margin_left = 14.0
+margin_top = 153.0
+margin_right = 671.0
+margin_bottom = 318.0
+wrap_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Tabs/Edit"]
+margin_left = 12.2272
+margin_top = 504.773
+margin_right = 161.227
+margin_bottom = 545.773
+text = "Save Changes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DateCreated" type="Label" parent="Tabs/Edit"]
+modulate = Color( 0.419608, 0.419608, 0.419608, 1 )
+margin_left = 809.091
+margin_top = 537.221
+margin_right = 1015.09
+margin_bottom = 551.221
+text = "Created: 20/12/13 2:20"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DateChangeWindow" type="WindowDialog" parent="Tabs/Edit"]
+margin_left = 392.602
+margin_top = 260.617
+margin_right = 637.602
+margin_bottom = 298.617
+window_title = "Set time created"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="Tabs/Edit/DateChangeWindow"]
+margin_left = 8.0
+margin_top = 7.0
+margin_right = 188.0
+margin_bottom = 31.0
+text = "20/12/15 2:20"
+
+[node name="save" type="Button" parent="Tabs/Edit/DateChangeWindow"]
+modulate = Color( 0.788235, 0.788235, 0.788235, 1 )
+margin_left = 193.465
+margin_top = 7.43152
+margin_right = 237.465
+margin_bottom = 29.4315
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DateChangeButton" type="Button" parent="Tabs/Edit"]
+margin_left = 947.0
+margin_top = 508.0
+margin_right = 1015.0
+margin_bottom = 528.0
+text = "Set Time"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Add" type="ItemList" parent="Tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="Panel" parent="Tabs/Add"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -519.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tabs/Add/Header"]
+margin_left = 13.9261
+margin_top = 11.6397
+margin_right = 200.926
+margin_bottom = 25.6397
+text = "Create Media"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitlePanel" type="PanelContainer" parent="Tabs/Add"]
+margin_left = 9.0
+margin_top = 50.0
+margin_right = 676.0
+margin_bottom = 84.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tabs/Add/TitlePanel"]
+margin_left = 7.0
+margin_top = 10.0
+margin_right = 660.0
+margin_bottom = 24.0
+text = "Title:"
+
+[node name="TagsPanel" type="PanelContainer" parent="Tabs/Add"]
+margin_left = 9.0
+margin_top = 89.0
+margin_right = 676.0
+margin_bottom = 123.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tabs/Add/TagsPanel"]
+margin_left = 7.0
+margin_top = 10.0
+margin_right = 660.0
+margin_bottom = 24.0
+text = "Tags:"
+
+[node name="LinkPanel" type="PanelContainer" parent="Tabs/Add"]
+margin_left = 9.41995
+margin_top = 390.564
+margin_right = 676.42
+margin_bottom = 424.564
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tabs/Add/LinkPanel"]
+margin_left = 7.0
+margin_top = 10.0
+margin_right = 660.0
+margin_bottom = 24.0
+text = "Link:"
+
+[node name="RatingPanel" type="PanelContainer" parent="Tabs/Add"]
+margin_left = 9.0
+margin_top = 328.0
+margin_right = 163.0
+margin_bottom = 362.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tabs/Add/RatingPanel"]
+margin_left = 7.0
+margin_top = 10.0
+margin_right = 147.0
+margin_bottom = 24.0
+text = "Rating:                  /10"
+
+[node name="DescriptionPanel" type="PanelContainer" parent="Tabs/Add"]
+margin_left = 9.0
+margin_top = 128.0
+margin_right = 676.0
+margin_bottom = 323.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tabs/Add"]
+margin_left = 16.0
+margin_top = 135.0
+margin_right = 669.0
+margin_bottom = 232.0
+text = "Description:"
+
+[node name="TitleEdit" type="LineEdit" parent="Tabs/Add"]
+margin_left = 60.0
+margin_top = 55.0
+margin_right = 671.0
+margin_bottom = 79.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TagsEdit" type="LineEdit" parent="Tabs/Add"]
+margin_left = 60.0
+margin_top = 94.0
+margin_right = 671.0
+margin_bottom = 118.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LinkEdit" type="LineEdit" parent="Tabs/Add"]
+margin_left = 56.42
+margin_top = 395.564
+margin_right = 671.42
+margin_bottom = 419.564
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RatingEdit" type="LineEdit" parent="Tabs/Add"]
+margin_left = 66.0
+margin_top = 333.0
+margin_right = 124.0
+margin_bottom = 357.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DescEdit" type="TextEdit" parent="Tabs/Add"]
+margin_left = 14.0
+margin_top = 153.0
+margin_right = 671.0
+margin_bottom = 318.0
+wrap_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddButton" type="Button" parent="Tabs/Add"]
+margin_left = 12.2272
+margin_top = 504.773
+margin_right = 161.227
+margin_bottom = 545.773
+text = "Add Media to List"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ConfirmationPopup" type="ConfirmationDialog" parent="Tabs/Add"]
+margin_left = 388.0
+margin_top = 213.0
+margin_right = 661.0
+margin_bottom = 283.0
+window_title = "Create new Item?"
+dialog_text = "A new Item will be created for this list..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ImagePanel" type="PanelContainer" parent="Tabs/Add"]
+margin_left = 9.22242
+margin_top = 429.979
+margin_right = 676.222
+margin_bottom = 463.979
+rect_pivot_offset = Vector2( 76.08, 61.436 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tabs/Add/ImagePanel"]
+margin_left = 7.0
+margin_top = 10.0
+margin_right = 660.0
+margin_bottom = 24.0
+text = "Image:"
+
+[node name="ImageEdit" type="LineEdit" parent="Tabs/Add"]
+margin_left = 69.0
+margin_top = 435.0
+margin_right = 671.0
+margin_bottom = 459.0
+rect_pivot_offset = Vector2( 29.08, 56.436 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DateCreated" type="Label" parent="Tabs/Add"]
+modulate = Color( 0.419608, 0.419608, 0.419608, 1 )
+margin_left = 809.091
+margin_top = 537.221
+margin_right = 1015.09
+margin_bottom = 551.221
+text = "Created: 20/12/13 2:20"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DateChangeWindow" type="WindowDialog" parent="Tabs/Add"]
+margin_left = 392.602
+margin_top = 260.617
+margin_right = 637.602
+margin_bottom = 298.617
+window_title = "Set time created"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="Tabs/Add/DateChangeWindow"]
+margin_left = 8.0
+margin_top = 7.0
+margin_right = 188.0
+margin_bottom = 31.0
+text = "20/12/15 2:20"
+
+[node name="save" type="Button" parent="Tabs/Add/DateChangeWindow"]
+modulate = Color( 0.788235, 0.788235, 0.788235, 1 )
+margin_left = 193.465
+margin_top = 7.43152
+margin_right = 237.465
+margin_bottom = 29.4315
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DateChangeButton" type="Button" parent="Tabs/Add"]
+margin_left = 947.0
+margin_top = 508.0
+margin_right = 1015.0
+margin_bottom = 528.0
+text = "Set Time"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="reorderDropdown" type="OptionButton" parent="."]
+modulate = Color( 0.733333, 0.733333, 0.733333, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 741.727
+margin_top = 7.00574
+margin_right = 843.727
+margin_bottom = 29.0057
+text = "DateDown"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadButton" type="Button" parent="."]
+margin_left = 857.557
+margin_top = 6.24264
+margin_right = 916.557
+margin_bottom = 30.2426
+text = "Load"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileName" type="LineEdit" parent="."]
+margin_left = 920.17
+margin_top = 5.67817
+margin_right = 1018.17
+margin_bottom = 29.6782
+text = "file"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileNewConfirm" type="ConfirmationDialog" parent="."]
+margin_left = 411.994
+margin_top = 258.284
+margin_right = 611.994
+margin_bottom = 328.284
+window_title = "Load a new file?"
+dialog_text = "Unsaved Changes will be lost"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 673.844
+margin_top = 11.0
+margin_right = 738.844
+margin_bottom = 25.0
+text = "Re-Order:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="tab_selected" from="Tabs" to="Tabs/Edit" method="_on_Tabs_tab_selected"]
+[connection signal="tab_selected" from="Tabs" to="Tabs/Add" method="_on_Tabs_tab_selected"]
+[connection signal="text_changed" from="Tabs/Read/Header/Keywords" to="Tabs/Read/ScrollContainer/VBoxContainer" method="_on_Keywords_text_changed"]
+[connection signal="item_selected" from="Tabs/Read/Header/sortDropdown" to="Tabs/Read/ScrollContainer/VBoxContainer" method="_on_sortDropdown_item_selected"]
+[connection signal="button_down" from="Tabs/Read/saveButton" to="Tabs/Read/ScrollContainer/VBoxContainer" method="button_save_desc"]
+[connection signal="button_down" from="Tabs/Read/linkButton" to="Tabs/Read/ScrollContainer/VBoxContainer" method="button_link"]
+[connection signal="button_down" from="Tabs/Read/SaveNewButton" to="Tabs/Read/SaveNewConfirm" method="_on_SaveNewButton_button_down"]
+[connection signal="button_down" from="Tabs/Read/Remove" to="Tabs/Read/ScrollContainer/VBoxContainer" method="remove_button"]
+[connection signal="confirmed" from="Tabs/Read/RemoveConfirm" to="Tabs/Read/ScrollContainer/VBoxContainer" method="confirmed_remove_item"]
+[connection signal="button_down" from="Tabs/Read/SaveNewConfirm/create" to="Tabs/Read/SaveNewConfirm" method="_on_create_button_down"]
+[connection signal="button_down" from="Tabs/Read/SaveNewConfirm/cancel" to="Tabs/Read/SaveNewConfirm" method="_on_cancel_button_down"]
+[connection signal="button_down" from="Tabs/Read/ShowListButton" to="Tabs/Read/ScrollContainer/VBoxContainer" method="_on_ShowListButton_button_down"]
+[connection signal="button_down" from="Tabs/Edit/Button" to="Tabs/Edit" method="Save_Changes_Button"]
+[connection signal="button_down" from="Tabs/Edit/DateChangeWindow/save" to="Tabs/Read/ScrollContainer/VBoxContainer" method="save_date_close"]
+[connection signal="button_down" from="Tabs/Edit/DateChangeButton" to="Tabs/Read/ScrollContainer/VBoxContainer" method="change_date_pop"]
+[connection signal="button_down" from="Tabs/Add/AddButton" to="Tabs/Add" method="_on_AddButton_button_down"]
+[connection signal="confirmed" from="Tabs/Add/ConfirmationPopup" to="Tabs/Add" method="create_media"]
+[connection signal="button_down" from="Tabs/Add/DateChangeWindow/save" to="Tabs/Add" method="_on_date_save_button_down"]
+[connection signal="button_down" from="Tabs/Add/DateChangeButton" to="Tabs/Add" method="_on_DateChangeButton_button_down"]
+[connection signal="item_selected" from="reorderDropdown" to="Tabs/Read/ScrollContainer/VBoxContainer" method="reorder_by_dropdown"]
+[connection signal="button_down" from="LoadButton" to="Tabs/Read/ScrollContainer/VBoxContainer" method="load_selection_pop"]
+[connection signal="text_entered" from="FileName" to="Tabs/Read/ScrollContainer/VBoxContainer" method="load_selection_pop_file"]
+[connection signal="confirmed" from="FileNewConfirm" to="Tabs/Read/ScrollContainer/VBoxContainer" method="load_selection"]
